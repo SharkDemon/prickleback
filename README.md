@@ -27,4 +27,4 @@ Submitted to MLH Do-Re-Mi Hacks 2020 in November 2020.
 
 ## Attribution
 
-Profile image photos harvested from [pexels.com](https://www.pexels.com) (can modify and use for free), edited at [pixlr.com](https://pixlr.com/x/), and then compressed at [tinypng.com](https://tinypng.com/).
+Photos harvested from [pexels.com](https://www.pexels.com) and [unsplash.com](https://unsplash.com) (can modify and use for free), WEBP files converted to JPG at [ezgif.com](https://ezgif.com/), edited at [pixlr.com](https://pixlr.com/x/), and then compressed at [tinypng.com](https://tinypng.com/).

@@ -15,15 +15,20 @@
                     <div class="card-body">
                         <h5 class="card-title">Band Name</h5>
                         <p class="card-text">
-                            Choose a band name comprised of an adjective and a noun.
-                            <select class="form-control" id="selAdj" th:field="*{nameAdjective}" required>
-                                <option value="">(select)</option>
-                                <option th:each="a : ${adjectives}" th:value="${a.value}" th:text="${a.value}"></option>
-                            </select>
-                            <select class="form-control" id="selNoun" th:field="*{nameNoun}" required>
-                                <option value="">(select)</option>
-                                <option th:each="n : ${nouns}" th:value="${n.value}" th:text="${n.value}"></option>
-                            </select>
+                            <div class="row">
+                                <div class="col">
+		                            <select class="form-control" id="selAdj" th:field="*{nameAdjective}" required>
+		                                <option value="">(select)</option>
+		                                <option th:each="a : ${adjectives}" th:value="${a.value}" th:text="${a.value}"></option>
+		                            </select>
+                                </div>
+                                <div class="col">
+		                            <select class="form-control" id="selNoun" th:field="*{nameNoun}" required>
+		                                <option value="">(select)</option>
+		                                <option th:each="n : ${nouns}" th:value="${n.value}" th:text="${n.value}"></option>
+		                            </select>
+                                </div>
+                            </div>
                         </p>
                         <a th:onclick="selectRandom('selAdj');selectRandom('selNoun')" class="btn">Choose Random</a>
                     </div>
@@ -56,7 +61,7 @@
                 </div>
     
             </div><!-- end div.justify-content-between -->
-            <div class="mt-4">
+            <div class="d-flex justify-content-center mt-4">
                 <button type="submit" class="btn btn-primary">Accept and Continue</button>
                 <button type="button" class="btn btn-link" th:onclick="selectRandom('selAdj');selectRandom('selNoun');selectRandom('selCity');selectRandom('selColor');">Randomize All</button>
             </div>

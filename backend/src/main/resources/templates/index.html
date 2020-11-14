@@ -6,9 +6,59 @@
         <div class="jumbotron text-white bg-dark">
             <h1 th:text="${applicationTitle}"></h1>
             <p class="lead">Welcome to <span th:text="${applicationTitle}"></span> - this fun application lets you create your own rock band and go on tour!</p>
+        </div>
+
+        <div class="d-flex justify-content-around">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+	                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+	                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+				</ol>
+				<div class="carousel-inner">
+	    			<div class="carousel-item active">
+		          		<img class="d-block w-800" th:src="@{/images/concert-1.png}" alt="Concert 1">
+	    			</div>
+	                <div class="carousel-item">
+	                    <img class="d-block w-800" th:src="@{/images/concert-2.png}" alt="Concert 2">
+	                </div>
+	                <div class="carousel-item">
+	                    <img class="d-block w-800" th:src="@{/images/concert-3.png}" alt="Concert 3">
+	                </div>
+	                <div class="carousel-item">
+	                    <img class="d-block w-800" th:src="@{/images/concert-4.png}" alt="Concert 4">
+	                </div>
+	                <div class="carousel-item">
+	                    <img class="d-block w-800" th:src="@{/images/concert-5.png}" alt="Concert 5">
+	                </div>
+	                <div class="carousel-item">
+	                    <img class="d-block w-800" th:src="@{/images/concert-6.png}" alt="Concert 6">
+	                </div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+
+        <div class="d-flex justify-content-center mt-4">
             <a th:href="@{/choose-members}" class="btn btn-primary">Get Started</a>
         </div>
+
     </main>
+<script>
+$('.carousel').carousel({
+    interval: 1000
+});
+</script>
     <div th:replace="fragments/footer :: footer(title=${applicationTitle})"></div>
 </body>
 </html>
