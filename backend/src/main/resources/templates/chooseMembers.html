@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="fragments/head :: head(title=${applicationTitle})"></div>
+<body>
+    <main role="main" class="container">
+        <div class="jumbotron text-white bg-dark">
+            <h1>Select Band Members</h1>
+            <p class="lead">Please select a lead, a rhythm guitarist, a bass guitarist, and a drummer.</p>
+        </div>
+
+        <form action="#" th:action="@{/choose-members}" th:object="${newBand}" method="post">
+	        <div class="d-flex justify-content-around">
+	
+	            <div class="card text-center bg-light" style="width: 250px;">
+	                <img class="card-img-top" th:src="@{/images/choose-lead.png}" alt="Choose lead">
+	                <div class="card-body">
+	                    <h5 class="card-title">Lead</h5>
+	                    <p class="card-text">
+                            <select class="form-control" th:field="*{lead}" required>
+		                        <option value="">(select)</option>
+		                        <option th:each="l : ${leads}" th:value="${l.id}" th:text="${l.displayValue}"></option>
+		                    </select>
+	                    </p>
+	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+	                </div>
+	            </div>
+	    
+	            <div class="card text-center bg-light" style="width: 250px;">
+	                <img class="card-img-top" th:src="@{/images/choose-rhythm.png}" alt="Choose rhythm">
+	                <div class="card-body">
+	                    <h5 class="card-title">Rhythm Guitar</h5>
+	                    <p class="card-text">
+                            <select class="form-control" th:field="*{rhythm}" required>
+		                        <option value="">(select)</option>
+		                        <option th:each="r : ${rhythms}" th:value="${r.id}" th:text="${r.displayValue}"></option>
+		                    </select>
+	                    </p>
+	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+	                </div>
+	            </div>
+	            
+	            <div class="card text-center bg-light" style="width: 250px;">
+	                <img class="card-img-top" th:src="@{/images/choose-bassist.png}" alt="Choose bassist">
+	                <div class="card-body">
+	                    <h5 class="card-title">Bass Guitar</h5>
+	                    <p class="card-text">
+                            <select class="form-control" th:field="*{bassist}" required>
+		                        <option value="">(select)</option>
+		                        <option th:each="b : ${bassists}" th:value="${b.id}" th:text="${b.displayValue}"></option>
+		                    </select>
+	                    </p>
+	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+	                </div>
+	            </div>
+	
+	            <div class="card text-center bg-light" style="width: 250px;">
+	                <img class="card-img-top" th:src="@{/images/choose-drummer.png}" alt="Choose drummer">
+	                <div class="card-body">
+	                    <h5 class="card-title">Drummer</h5>
+	                    <p class="card-text">
+                            <select class="form-control" th:field="*{drummer}" required>
+		                        <option value="">(select)</option>
+		                        <option th:each="d : ${drummers}" th:value="${d.id}" th:text="${d.displayValue}"></option>
+		                    </select>
+	                    </p>
+	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+	                </div>
+	            </div>
+	
+	        </div><!-- end div.justify-content-between -->
+            <button type="submit" class="btn btn-primary">Accept and Continue</button>
+	    </form>
+    </main>
+    <div th:replace="fragments/footer :: footer(title=${applicationTitle})"></div>
+</body>
+</html>

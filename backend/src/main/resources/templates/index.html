@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="fragments/head :: head(title=${applicationTitle})"></div>
+<body>
+    <main role="main" class="container">
+        <div class="jumbotron text-white bg-dark">
+            <h1 th:text="${applicationTitle}"></h1>
+            <p class="lead">Welcome to <span th:text="${applicationTitle}"></span> - this fun application lets you create your own rock band and go on tour!</p>
+            <a th:href="@{/choose-members}" class="btn btn-primary">Get Started</a>
+        </div>
+    </main>
+    <div th:replace="fragments/footer :: footer(title=${applicationTitle})"></div>
+</body>
+</html>
