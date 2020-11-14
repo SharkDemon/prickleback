@@ -34,6 +34,12 @@ public class Person {
 
     private String band;
 
+    @Column(name="image_name")
+    private String imageName;
+
+    @Column(name="image_thumb_name")
+    private String imageThumbName;
+
     private UUID uid;
 
     public String getDisplayValue() {

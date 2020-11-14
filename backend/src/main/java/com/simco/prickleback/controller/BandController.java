@@ -17,6 +17,7 @@ import com.simco.prickleback.model.Band;
 import com.simco.prickleback.model.City;
 import com.simco.prickleback.model.Person;
 import com.simco.prickleback.model.ReferenceData;
+import com.simco.prickleback.model.Tour;
 
 @Controller
 public class BandController extends BaseController {
@@ -26,6 +27,8 @@ public class BandController extends BaseController {
     @GetMapping("/choose-members")
     public String showChooseMembers(
             @ModelAttribute("appInfo") AppInfo appInfo,
+            @ModelAttribute("currentBand") Band currentBand,
+            @ModelAttribute("currentTour") Tour currentTour,
             Model model) {
 
         logger.info("showChooseMembers() invoked");
@@ -60,6 +63,9 @@ public class BandController extends BaseController {
                 band.getDrummer().getDisplayValue());
 
         // save selected band members to state object
+        if (null == currentBand) {
+            currentBand = Band.builder().build();
+        }
         currentBand.setLead(band.getLead());
         currentBand.setRhythm(band.getRhythm());
         currentBand.setBassist(band.getBassist());

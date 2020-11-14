@@ -37,7 +37,7 @@ public class BaseController {
     // keep the current Band object in session
     @ModelAttribute("currentBand")
     public Band currentBand() {
-        return new Band();
+        return null;
     }
 
     // keep the current Tour object in session

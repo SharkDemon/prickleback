@@ -23,7 +23,7 @@ public class TourController extends BaseController {
             @ModelAttribute("currentTour") Tour currentTour,
             Model model) {
 
-        logger.info("showTour() invoked");
+        logger.info("currentTour() invoked, currentBand=[{}]", currentBand.getName());
 
         // if Tour is null, we will build out a new Tour here!  we will
         // populate the Show dates and Questions as well
@@ -32,10 +32,10 @@ public class TourController extends BaseController {
         }
 
         // add session variables
+        model.addAttribute("currentBand", currentBand);
         model.addAttribute("currentTour", currentTour);
         // add data necessary to render view
         model.addAttribute("applicationTitle", appInfo.getTitle());
-        model.addAttribute("bandName", currentBand.getName());
         return "tour";
     }
 

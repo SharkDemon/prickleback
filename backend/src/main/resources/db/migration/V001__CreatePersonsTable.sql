@@ -6,6 +6,8 @@ CREATE TABLE persons (
     last_name STRING,
     band_role STRING NOT NULL,
     band STRING,
+    image_name STRING,
+    image_thumb_name STRING,
     uid UUID DEFAULT gen_random_uuid()
 );
 
