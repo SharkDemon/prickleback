@@ -9,7 +9,7 @@
         </div>
 
         <div class="d-flex flex-row justify-content-between align-items-start mt-2">
-	        <div class="d-flex flex-column">
+	        <div class="d-flex flex-column w-100">
 		        <div class="d-flex">
 		            <h4 th:text="${currentTour.name}">Tour Name</h4>
 		        </div>
@@ -24,7 +24,7 @@
 		                    </h5>
 		                    <h5 class="card-title" th:text="${show.city.displayValue}">City</h5>
 	                    </div>
-	                    <div class="d-flex flex-row align-items-center">
+	                    <div class="d-flex flex-row justify-content-end align-items-center">
                             <div class="d-flex text-nowrap">Set List</div>
 	                        <div class="d-flex flex-row flex-wrap align-items-center">
 	                            <div class="d-flex justify-content-center align-items-center ml-2 mb-2 tourShowQuestion" th:each="question : ${show.showQuestions}" th:style="${'background-color: ' + question.answerColor}">
@@ -35,7 +35,7 @@
 	                </div>
 	            </div>
 	        </div>
-            <div class="d-flex flex-column" style="width: 210px !important;">
+            <div class="d-flex flex-column" style="min-width: 210px;">
 	            <div class="card text-center bg-light ml-2">
 	                <img class="card-img-top border" th:src="@{${'/images/L/' + currentBand.lead.imageName}}" th:alt="${currentBand.lead.displayValue}">
 	                <div class="card-body">
