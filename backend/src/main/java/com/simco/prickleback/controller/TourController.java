@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.simco.prickleback.model.AppInfo;
 import com.simco.prickleback.model.Band;
 import com.simco.prickleback.model.Tour;
 
@@ -18,7 +17,6 @@ public class TourController extends BaseController {
 
     @GetMapping("/tour")
     public String showTour(
-            @ModelAttribute("appInfo") AppInfo appInfo,
             @ModelAttribute("currentBand") Band currentBand,
             @ModelAttribute("currentTour") Tour currentTour,
             Model model) {
@@ -34,8 +32,6 @@ public class TourController extends BaseController {
         // add session variables
         model.addAttribute("currentBand", currentBand);
         model.addAttribute("currentTour", currentTour);
-        // add data necessary to render view
-        model.addAttribute("applicationTitle", appInfo.getTitle());
         return "tour";
     }
 
