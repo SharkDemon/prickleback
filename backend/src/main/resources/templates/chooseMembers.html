@@ -4,7 +4,7 @@
 <body>
     <main role="main" class="container">
         <div class="jumbotron text-white bg-dark">
-            <h1>Select Band Members</h1>
+            <h1>Choose Band Members</h1>
             <p class="lead">Please select a lead, a rhythm guitarist, a bass guitarist, and a drummer.</p>
         </div>
 
@@ -16,12 +16,12 @@
 	                <div class="card-body">
 	                    <h5 class="card-title">Lead</h5>
 	                    <p class="card-text">
-                            <select class="form-control" th:field="*{lead}" required>
+                            <select class="form-control" id="selLead" th:field="*{lead}" required>
 		                        <option value="">(select)</option>
 		                        <option th:each="l : ${leads}" th:value="${l.id}" th:text="${l.displayValue}"></option>
 		                    </select>
 	                    </p>
-	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+	                    <a th:onclick="selectRandom('selLead')" class="btn">Choose Random</a>
 	                </div>
 	            </div>
 	    
@@ -30,12 +30,12 @@
 	                <div class="card-body">
 	                    <h5 class="card-title">Rhythm Guitar</h5>
 	                    <p class="card-text">
-                            <select class="form-control" th:field="*{rhythm}" required>
+                            <select class="form-control" id="selRhythm" th:field="*{rhythm}" required>
 		                        <option value="">(select)</option>
 		                        <option th:each="r : ${rhythms}" th:value="${r.id}" th:text="${r.displayValue}"></option>
 		                    </select>
 	                    </p>
-	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+                        <a th:onclick="selectRandom('selRhythm')" class="btn">Choose Random</a>
 	                </div>
 	            </div>
 	            
@@ -44,12 +44,12 @@
 	                <div class="card-body">
 	                    <h5 class="card-title">Bass Guitar</h5>
 	                    <p class="card-text">
-                            <select class="form-control" th:field="*{bassist}" required>
+                            <select class="form-control" id="selBassist" th:field="*{bassist}" required>
 		                        <option value="">(select)</option>
 		                        <option th:each="b : ${bassists}" th:value="${b.id}" th:text="${b.displayValue}"></option>
 		                    </select>
 	                    </p>
-	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+                        <a th:onclick="selectRandom('selBassist')" class="btn">Choose Random</a>
 	                </div>
 	            </div>
 	
@@ -58,17 +58,20 @@
 	                <div class="card-body">
 	                    <h5 class="card-title">Drummer</h5>
 	                    <p class="card-text">
-                            <select class="form-control" th:field="*{drummer}" required>
+                            <select class="form-control" id="selDrummer" th:field="*{drummer}" required>
 		                        <option value="">(select)</option>
 		                        <option th:each="d : ${drummers}" th:value="${d.id}" th:text="${d.displayValue}"></option>
 		                    </select>
 	                    </p>
-	                    <a th:href="@{/}" class="btn btn-primary">Choose Random</a>
+                        <a th:onclick="selectRandom('selDrummer')" class="btn">Choose Random</a>
 	                </div>
 	            </div>
 	
 	        </div><!-- end div.justify-content-between -->
-            <button type="submit" class="btn btn-primary">Accept and Continue</button>
+	        <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Accept and Continue</button>
+                <button type="button" class="btn btn-link" th:onclick="selectRandom('selLead');selectRandom('selRhythm');selectRandom('selBassist');selectRandom('selDrummer');">Randomize All</button>
+	        </div>
 	    </form>
     </main>
     <div th:replace="fragments/footer :: footer(title=${applicationTitle})"></div>

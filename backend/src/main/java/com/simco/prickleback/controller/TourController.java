@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.simco.prickleback.model.AppInfo;
 
 @Controller
-public class IndexController extends BaseController {
+public class TourController extends BaseController {
 
-    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TourController.class);
 
-    @GetMapping("/")
-    public String showIndex(
+    @GetMapping("/tour")
+    public String showTour(
             @ModelAttribute("appInfo") AppInfo appInfo,
             Model model) {
 
-        logger.info("showIndex() invoked");
+        logger.info("showTour() invoked");
+
+        // TODO: get a list of random tour cities (and dates?)
 
         // add data necessary to render view
         model.addAttribute("applicationTitle", appInfo.getTitle());
-        return "index";
+        return "tour";
     }
 
 }

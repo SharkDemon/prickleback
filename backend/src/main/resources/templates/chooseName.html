@@ -1,1 +1,67 @@
-CHOOSE NAME
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="fragments/head :: head(title=${applicationTitle})"></div>
+<body>
+    <main role="main" class="container">
+        <div class="jumbotron text-white bg-dark">
+            <h1>Choose Band Name</h1>
+            <p class="lead">Please choose your band name, hometown, and color scheme.</p>
+        </div>
+
+        <form action="#" th:action="@{/choose-name}" th:object="${newNameInfo}" method="post">
+            <div class="d-flex justify-content-around">
+    
+                <div class="card text-center bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Band Name</h5>
+                        <p class="card-text">
+                            Choose a band name comprised of an adjective and a noun.
+                            <select class="form-control" id="selAdj" th:field="*{nameAdjective}" required>
+                                <option value="">(select)</option>
+                                <option th:each="c : ${cities}" th:value="${c.id}" th:text="${c.displayValue}"></option>
+                            </select>
+                            <select class="form-control" id="selNoun" th:field="*{nameNoun}" required>
+                                <option value="">(select)</option>
+                                <option th:each="c : ${cities}" th:value="${c.id}" th:text="${c.displayValue}"></option>
+                            </select>
+                        </p>
+                        <a th:onclick="selectRandom('selAdj');selectRandom('selNoun')" class="btn">Choose Random</a>
+                    </div>
+                </div>
+        
+                <div class="card text-center bg-light" style="width: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Hometown</h5>
+                        <p class="card-text">
+                            <select class="form-control" id="selCity" th:field="*{hometown}" required>
+                                <option value="">(select)</option>
+                                <option th:each="c : ${cities}" th:value="${c.id}" th:text="${c.displayValue}"></option>
+                            </select>
+                        </p>
+                        <a th:onclick="selectRandom('selCity')" class="btn">Choose Random</a>
+                    </div>
+                </div>
+                
+                <div class="card text-center bg-light" style="width: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Color</h5>
+                        <p class="card-text">
+                            <select class="form-control" id="selColor" th:field="*{color}" required>
+                                <option value="">(select)</option>
+                                <option th:each="c : ${cities}" th:value="${c.id}" th:text="${c.displayValue}"></option>
+                            </select>
+                        </p>
+                        <a th:onclick="selectRandom('selColor')" class="btn">Choose Random</a>
+                    </div>
+                </div>
+    
+            </div><!-- end div.justify-content-between -->
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Accept and Continue</button>
+                <button type="button" class="btn btn-link" th:onclick="selectRandom('selAdj');selectRandom('selNoun');selectRandom('selCity');selectRandom('selColor');">Randomize All</button>
+            </div>
+        </form>
+    </main>
+    <div th:replace="fragments/footer :: footer(title=${applicationTitle})"></div>
+</body>
+</html>

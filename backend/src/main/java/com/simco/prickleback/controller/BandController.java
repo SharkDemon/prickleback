@@ -4,31 +4,28 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.simco.prickleback.model.AppInfo;
 import com.simco.prickleback.model.Band;
+import com.simco.prickleback.model.City;
 import com.simco.prickleback.model.Person;
-import com.simco.prickleback.service.CityService;
-import com.simco.prickleback.service.PersonService;
 
 @Controller
-public class BandController {
+public class BandController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(BandController.class);
 
-    @Autowired
-    private PersonService personService;
-    @Autowired
-    private CityService cityService;
-
     @GetMapping("/choose-members")
-    public String showChooseMembers(Model model) {
+    public String showChooseMembers(
+            @ModelAttribute("appInfo") AppInfo appInfo,
+            Model model) {
 
         logger.info("showChooseMembers() invoked");
 
@@ -40,7 +37,7 @@ public class BandController {
                 leads.size(), drummers.size(), bassists.size(), rhythms.size());
 
         // add data necessary to render view
-        model.addAttribute("applicationTitle", "Fantasy Rockband");
+        model.addAttribute("applicationTitle", appInfo.getTitle());
         model.addAttribute("leads", leads);
         model.addAttribute("drummers", drummers);
         model.addAttribute("bassists", bassists);
@@ -50,7 +47,8 @@ public class BandController {
     }
 
     @PostMapping("/choose-members")
-    public String chooseMembers(
+    public ModelAndView chooseMembers(
+            @ModelAttribute("currentBand") Band currentBand,
             @ModelAttribute Band band,
             ModelMap model) {
 
@@ -60,7 +58,51 @@ public class BandController {
                 band.getBassist().getDisplayValue(),
                 band.getDrummer().getDisplayValue());
 
+        // save selected band members to state object
+        currentBand.setLead(band.getLead());
+        currentBand.setRhythm(band.getRhythm());
+        currentBand.setBassist(band.getBassist());
+        currentBand.setDrummer(band.getDrummer());
+
+        model.addAttribute("currentBand", currentBand);
+        return new ModelAndView("redirect:/choose-name", model);
+    }
+
+    @GetMapping("/choose-name")
+    public String showChooseName(
+            @ModelAttribute("appInfo") AppInfo appInfo,
+            Model model) {
+
+        logger.info("showChooseName() invoked");
+
+        List<City> cities = cityService.getAllCities();
+
+        // add data necessary to render view
+        model.addAttribute("applicationTitle", appInfo.getTitle());
+        model.addAttribute("cities", cities);
+        model.addAttribute("newNameInfo", new Band());
         return "chooseName";
+    }
+
+    @PostMapping("/choose-name")
+    public ModelAndView chooseName(
+            @ModelAttribute("currentBand") Band currentBand,
+            @ModelAttribute Band band,
+            ModelMap model) {
+
+        logger.info("chooseName() invoked - name=[{}], hometown=[{}], color=[{}]",
+                band.getName(),
+                band.getHometown().getDisplayValue(),
+                band.getColor());
+
+        // save selected band members to state object
+        currentBand.setNameAdjective(band.getNameAdjective());
+        currentBand.setNameNoun(band.getNameNoun());
+        currentBand.setHometown(band.getHometown());
+        currentBand.setColor(band.getColor());
+
+        model.addAttribute("currentBand", currentBand);
+        return new ModelAndView("redirect:/tour", model);
     }
 
 }
