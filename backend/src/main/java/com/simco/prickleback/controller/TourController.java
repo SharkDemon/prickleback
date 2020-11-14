@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.simco.prickleback.model.AppInfo;
+import com.simco.prickleback.model.Band;
+import com.simco.prickleback.model.Tour;
 
 @Controller
 public class TourController extends BaseController {
@@ -17,14 +19,23 @@ public class TourController extends BaseController {
     @GetMapping("/tour")
     public String showTour(
             @ModelAttribute("appInfo") AppInfo appInfo,
+            @ModelAttribute("currentBand") Band currentBand,
+            @ModelAttribute("currentTour") Tour currentTour,
             Model model) {
 
         logger.info("showTour() invoked");
 
-        // TODO: get a list of random tour cities (and dates?)
+        // if Tour is null, we will build out a new Tour here!  we will
+        // populate the Show dates and Questions as well
+        if (null == currentTour) {
+            currentTour = tourService.createTour(currentBand);
+        }
 
+        // add session variables
+        model.addAttribute("currentTour", currentTour);
         // add data necessary to render view
         model.addAttribute("applicationTitle", appInfo.getTitle());
+        model.addAttribute("bandName", currentBand.getName());
         return "tour";
     }
 

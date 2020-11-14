@@ -21,8 +21,11 @@ public class IndexController extends BaseController {
 
         logger.info("showIndex() invoked");
 
+        // add session variables
+        model.addAttribute("currentBand", null);
+        model.addAttribute("currentTour", null);
         // add data necessary to render view
-        model.addAttribute("applicationTitle", appInfo.getTitle());
+        model.addAttribute("appInfo", appInfo);
         return "index";
     }
 

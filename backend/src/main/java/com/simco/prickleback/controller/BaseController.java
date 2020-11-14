@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.simco.prickleback.model.AppInfo;
 import com.simco.prickleback.model.Band;
+import com.simco.prickleback.model.Tour;
 import com.simco.prickleback.service.CityService;
 import com.simco.prickleback.service.PersonService;
 import com.simco.prickleback.service.ReferenceDataService;
+import com.simco.prickleback.service.TourService;
 
 @Controller
-@SessionAttributes({"appInfo", "currentBand"})
+@SessionAttributes({"appInfo", "currentBand", "currentTour"})
 public class BaseController {
 
     @Autowired
@@ -21,11 +23,14 @@ public class BaseController {
     protected CityService cityService;
     @Autowired
     protected ReferenceDataService referenceDataService;
+    @Autowired
+    protected TourService tourService;
 
     @ModelAttribute("appInfo")
     public AppInfo applicationInfo() {
         return AppInfo.builder()
-                .title("Fantasy Rockband")
+                .title("Prickleback")
+                .hackathon("Do-Re-Mi Hacks 2020")
                 .build();
     }
 
@@ -33,6 +38,12 @@ public class BaseController {
     @ModelAttribute("currentBand")
     public Band currentBand() {
         return new Band();
+    }
+
+    // keep the current Tour object in session
+    @ModelAttribute("currentTour")
+    public Tour currentTour() {
+        return null;
     }
 
 }

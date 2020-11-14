@@ -18,4 +18,8 @@ public class CityService {
         return repository.findByOrderByNameAsc();
     }
 
+    public City getRandomCity() {
+        return repository.findRandomCities(1).get(0);
+    }
+
 }

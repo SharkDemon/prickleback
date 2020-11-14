@@ -38,7 +38,7 @@ public class BandController extends BaseController {
                 leads.size(), drummers.size(), bassists.size(), rhythms.size());
 
         // add data necessary to render view
-        model.addAttribute("applicationTitle", appInfo.getTitle());
+        model.addAttribute("appInfo", appInfo);
         model.addAttribute("leads", leads);
         model.addAttribute("drummers", drummers);
         model.addAttribute("bassists", bassists);
@@ -82,7 +82,7 @@ public class BandController extends BaseController {
         List<ReferenceData> colors = referenceDataService.getAllBandColors();
 
         // add data necessary to render view
-        model.addAttribute("applicationTitle", appInfo.getTitle());
+        model.addAttribute("appInfo", appInfo);
         model.addAttribute("adjectives", adjectives);
         model.addAttribute("nouns", nouns);
         model.addAttribute("cities", cities);
