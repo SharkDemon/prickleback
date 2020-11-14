@@ -18,11 +18,11 @@
                             Choose a band name comprised of an adjective and a noun.
                             <select class="form-control" id="selAdj" th:field="*{nameAdjective}" required>
                                 <option value="">(select)</option>
-                                <option th:each="c : ${cities}" th:value="${c.id}" th:text="${c.displayValue}"></option>
+                                <option th:each="a : ${adjectives}" th:value="${a.value}" th:text="${a.value}"></option>
                             </select>
                             <select class="form-control" id="selNoun" th:field="*{nameNoun}" required>
                                 <option value="">(select)</option>
-                                <option th:each="c : ${cities}" th:value="${c.id}" th:text="${c.displayValue}"></option>
+                                <option th:each="n : ${nouns}" th:value="${n.value}" th:text="${n.value}"></option>
                             </select>
                         </p>
                         <a th:onclick="selectRandom('selAdj');selectRandom('selNoun')" class="btn">Choose Random</a>
@@ -48,7 +48,7 @@
                         <p class="card-text">
                             <select class="form-control" id="selColor" th:field="*{color}" required>
                                 <option value="">(select)</option>
-                                <option th:each="c : ${cities}" th:value="${c.id}" th:text="${c.displayValue}"></option>
+                                <option th:each="c : ${colors}" th:value="${c.value}" th:text="${c.value}"></option>
                             </select>
                         </p>
                         <a th:onclick="selectRandom('selColor')" class="btn">Choose Random</a>

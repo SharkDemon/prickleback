@@ -9,6 +9,7 @@ import com.simco.prickleback.model.AppInfo;
 import com.simco.prickleback.model.Band;
 import com.simco.prickleback.service.CityService;
 import com.simco.prickleback.service.PersonService;
+import com.simco.prickleback.service.ReferenceDataService;
 
 @Controller
 @SessionAttributes({"appInfo", "currentBand"})
@@ -18,6 +19,8 @@ public class BaseController {
     protected PersonService personService;
     @Autowired
     protected CityService cityService;
+    @Autowired
+    protected ReferenceDataService referenceDataService;
 
     @ModelAttribute("appInfo")
     public AppInfo applicationInfo() {

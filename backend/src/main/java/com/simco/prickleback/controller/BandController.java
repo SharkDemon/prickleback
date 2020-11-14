@@ -16,6 +16,7 @@ import com.simco.prickleback.model.AppInfo;
 import com.simco.prickleback.model.Band;
 import com.simco.prickleback.model.City;
 import com.simco.prickleback.model.Person;
+import com.simco.prickleback.model.ReferenceData;
 
 @Controller
 public class BandController extends BaseController {
@@ -75,11 +76,17 @@ public class BandController extends BaseController {
 
         logger.info("showChooseName() invoked");
 
+        List<ReferenceData> adjectives = referenceDataService.getAllBandNameAdjectives();
+        List<ReferenceData> nouns = referenceDataService.getAllBandNameNouns();
         List<City> cities = cityService.getAllCities();
+        List<ReferenceData> colors = referenceDataService.getAllBandColors();
 
         // add data necessary to render view
         model.addAttribute("applicationTitle", appInfo.getTitle());
+        model.addAttribute("adjectives", adjectives);
+        model.addAttribute("nouns", nouns);
         model.addAttribute("cities", cities);
+        model.addAttribute("colors", colors);
         model.addAttribute("newNameInfo", new Band());
         return "chooseName";
     }
