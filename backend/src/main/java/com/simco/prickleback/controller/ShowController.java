@@ -34,10 +34,14 @@ public class ShowController extends BaseController {
         Show activeShow = currentTour.getActiveShow();
         ShowQuestion activeQuestion = currentTour.getActiveQuestion();
 
+        // TODO: move this into a service call
+        String animatedGifName = String.format("animated-%s.gif", tourService.getRandomNumber(1, 7));
+
         // add data necessary to render view
         model.addAttribute("activeShow", activeShow);
         model.addAttribute("activeQuestion", activeQuestion);
         model.addAttribute("questionForm", new QuestionForm());
+        model.addAttribute("animatedGifName", animatedGifName);
         return new ModelAndView("show", model);
     }
 

@@ -39,12 +39,15 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex flex-column" style="min-width: 210px;">
+            <div class="d-flex flex-column" style="min-width:210px;max-width:210px;">
                 <div class="card text-center bg-light ml-2">
                     <img class="card-img-top border" th:src="@{${'/images/L/' + currentBand.lead.imageName}}" th:alt="${currentBand.lead.displayValue}">
                     <div class="card-body">
                         <p class="card-text" th:text="${currentBand.lead.displayValue + ' says Rock On!'}">Lead Singer Quote</p>
                     </div>
+                </div>
+                <div class="card text-center bg-light mt-2 ml-2">
+                    <img class="card-img-top" th:src="@{${'/images/gifs/' + animatedGifName}}" alt="Rock-and-roll animated GIF">
                 </div>
             </div>
         </div>

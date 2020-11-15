@@ -3,6 +3,7 @@ package com.simco.prickleback.service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.slf4j.Logger;
@@ -77,6 +78,12 @@ public class TourService {
 
     private int getRandomInt() {
         return ThreadLocalRandom.current().nextInt(1, 4);
+    }
+
+    // min and max are (inclusive) range
+    public int getRandomNumber(int min, int max) {
+        Random r = new Random();
+        return r.nextInt((max-min)+1) + min;
     }
 
 }
