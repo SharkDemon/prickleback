@@ -39,6 +39,8 @@ public class QuoteService {
             "No way, great score!",
             "We pulled together and delivered a great tour.",
             "Some of my favorite shows were on this tour.",
+            "I think you're a great fan of music.",
+            "Really digging your lyrical groove.",
     };
 
     private static final String[] SCORE_REACTIONS_C = {
@@ -52,6 +54,8 @@ public class QuoteService {
             "Hey, middle of the road is still ON the road.",
             "One of these days you're gonna get it just right!",
             "There's room for improvement, but nice work so far.",
+            "If only everyone did this well.",
+            "Music could be your thing.  Keep learning.",
     };
 
     private static final String[] SCORE_REACTIONS_D = {
@@ -69,10 +73,15 @@ public class QuoteService {
             "Maybe go with different answers next time.",
             "Hey, it could have been worse...but only barely.",
             "You did better than some journalists.",
+            "Not bad for a beginner.",
+            "Lyrics aren't for everyone, but you have time to learn.",
     };
 
     private static final String[] SCORE_REACTIONS_E = {
             "Good lord, you're the worst.",
+            "Just unacceptable.",
+            "Wow, you should really try again.",
+            "Please, try one more time.",
             "Simply terrible.",
             "It doesn't get much worse, does it?",
             "Please study some more and try again.",
@@ -85,6 +94,8 @@ public class QuoteService {
             "I hope our label doesn't drop us.",
             "No offense, but I may ask our agent to...replace you.",
             "If that's how you tour, I don't think I want to tour anymore.",
+            "Nice to meet you, Captain McFail.",
+            "Give me the last five minutes of my life back.",
     };
 
     public String getRandomReactionForGrade(Grade grade) {

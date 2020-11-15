@@ -26,7 +26,7 @@ public class IndexController extends BaseController {
             SessionStatus sessionStatus,
             ModelMap model) {
 
-        logger.info("showIndex() invoked");
+        logger.debug("showIndex() invoked");
 
         // if we have existing session data, end the session (killing those
         // attributes) and re-direct to index page

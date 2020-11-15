@@ -31,13 +31,13 @@ public class BandController extends BaseController {
             @ModelAttribute("currentTour") Tour currentTour,
             Model model) {
 
-        logger.info("showChooseMembers() invoked");
+        logger.debug("showChooseMembers() invoked");
 
         List<Person> leads = personService.getAllLeads();
         List<Person> drummers = personService.getAllDrummers();
         List<Person> bassists = personService.getAllBassists();
         List<Person> rhythms = personService.getAllRhythms();
-        logger.info("getAllLeads() returned [{}] leads, [{}] drummers, [{}] bassists, [{}] rhythms",
+        logger.debug("getAllLeads() returned [{}] leads, [{}] drummers, [{}] bassists, [{}] rhythms",
                 leads.size(), drummers.size(), bassists.size(), rhythms.size());
 
         // add data necessary to render view
@@ -80,7 +80,7 @@ public class BandController extends BaseController {
             @ModelAttribute("appInfo") AppInfo appInfo,
             Model model) {
 
-        logger.info("showChooseName() invoked");
+        logger.debug("showChooseName() invoked");
 
         List<ReferenceData> adjectives = referenceDataService.getAllBandNameAdjectives();
         List<ReferenceData> nouns = referenceDataService.getAllBandNameNouns();

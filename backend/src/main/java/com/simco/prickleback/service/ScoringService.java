@@ -18,10 +18,8 @@ public class ScoringService {
 
     public Grade getGrade(Score score) {
 
-        logger.info("getGrade() score=[{}], maxScore=[{}]", score.getCurrentScore(), score.getOverallMaxScore());
-
         double percentage = 100 * score.getCurrentScore() / score.getOverallMaxScore();
-        logger.info("getGrade() percentage=[{}]", percentage);
+        logger.debug("getGrade() percentage=[{}]", percentage);
 
         if (Grade.A.getThreshold() <= percentage) {
             return Grade.A;

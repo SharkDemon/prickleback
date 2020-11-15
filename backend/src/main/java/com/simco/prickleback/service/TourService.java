@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ import com.simco.prickleback.model.Tour;
 @Service
 public class TourService {
 
+    private static final Logger logger = LoggerFactory.getLogger(TourService.class);
+
     private static final int SHOWS_PER_TOUR = 3;
     private static final int QUESTIONS_PER_SHOW = 3;
 
@@ -25,8 +29,15 @@ public class TourService {
 
     @Autowired
     private CityService cityService;
+    @Autowired
+    private QuestionService questionService;
 
     public Tour createTour(Band band) {
+
+        // get an appropriate number of (randomized) questions from the DB;
+        // these will be used to build out the Tour
+        List<ShowQuestion> randomQuestions = questionService.getRandomQuestions(SHOWS_PER_TOUR * QUESTIONS_PER_SHOW);
+        logger.debug("TourService.createTour() retrieved randomQuestions.size=[{}]", randomQuestions.size());
 
         int dateOffset = 0;
 
@@ -41,15 +52,9 @@ public class TourService {
             List<ShowQuestion> showQuestions = new ArrayList<ShowQuestion>(QUESTIONS_PER_SHOW);
             // (4) build the list of ShowQuestions
             for (int j = 0; j < QUESTIONS_PER_SHOW; j++) {
-                ShowQuestion question = ShowQuestion.builder()
-                        // TODO: build a question database service
-                        .question("TODO get a question <<BLANK>>")
-                        .answers(new String[] {"Answer 1", "Answer 2", "Answer3", "ANSWER4", "Answer 5", "Answer 6"})
-                        .correctAnswerIndex(3)
-                        .answeredCorrectly(null)
-                        .score((j + 1) * NORMAL_SHOW_SCORE_MULTIPLIER)
-                        .imagePath("/images/questions/question-X.png")
-                        .build();
+                logger.debug("TourService.createTour() getting question index=[{}]", (i*SHOWS_PER_TOUR)+j);
+                ShowQuestion question = randomQuestions.get( (i*SHOWS_PER_TOUR) + j );
+                question.setScore((j + 1) * NORMAL_SHOW_SCORE_MULTIPLIER);
                 showQuestions.add(question);
             }
 
