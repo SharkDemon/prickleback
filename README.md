@@ -11,6 +11,7 @@ Submitted to MLH Do-Re-Mi Hacks 2020 in November 2020.
 ![](https://img.shields.io/badge/Code-HTML5-informational?style=flat&logo=html&logoColor=white&color=sucess)
 ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=css&logoColor=white&color=sucess)
 ![](https://img.shields.io/badge/Code-Bootstrap-informational?style=flat&logo=bootstrap&logoColor=white&color=sucess)
+![](https://img.shields.io/badge/Code-Thymeleaf-informational?style=flat&logo=thymeleaf&logoColor=white&color=sucess)
 
 ### Back-End
 
