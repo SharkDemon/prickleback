@@ -16,8 +16,8 @@ import com.simco.prickleback.model.Tour;
 @Service
 public class TourService {
 
-    private static final int SHOWS_PER_TOUR = 4;
-    private static final int QUESTIONS_PER_SHOW = 4;
+    private static final int SHOWS_PER_TOUR = 3;
+    private static final int QUESTIONS_PER_SHOW = 3;
 
     private static final int NORMAL_SHOW_SCORE_MULTIPLIER = 10;
     // TODO: not using this one yet!

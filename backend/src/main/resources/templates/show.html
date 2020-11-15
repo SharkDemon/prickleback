@@ -1,1 +1,49 @@
-SHOW PAGE
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="fragments/head :: head(appInfo=${appInfo})"></div>
+<body>
+    <main role="main" class="container">
+        <div class="jumbotron text-white bg-dark">
+            <h1><span th:text="${activeShow.city.name}"></span> Show, Question <span th:text="${activeShow.activeQuestionNumber}"></span></h1>
+            <p class="lead">Read the song lyric and fill in the blank with one of the answers below.</p>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between align-items-start mt-2">
+            <div class="d-flex flex-column w-100">
+                <div class="card text-center bg-light">
+                    <!--<img class="card-img-top" th:src="@{/images/choose-lead.png}" alt="Choose lead">-->
+                    <div class="card-body">
+                        <h5 class="card-title">Lyric</h5>
+                        <p class="card-text" th:text="${activeQuestion.question}"></p>
+                    </div>
+                </div>
+                <div class="card text-center bg-light mt-2">
+                    <!--<img class="card-img-top" th:src="@{/images/choose-lead.png}" alt="Choose lead">-->
+                    <div class="card-body">
+                        <h5 class="card-title">Choices</h5>
+                        <form action="#" th:action="@{/goto-show}" th:object="${questionForm}" method="post">
+	                        <div class="form-check" th:each="answer, answerStatus : ${activeQuestion.answers}">
+	                            <input class="form-check-input" type="radio" name="completeTheLyric" th:field="*{submittedAnswer}" th:value="${answerStatus.index}">
+	                            <label class="form-check-label" for="*{submittedAnswer}" th:text="${answer}"></label>
+	                        </div>
+				            <div class="d-flex justify-content-center mt-4">
+				                <button type="submit" class="btn btn-primary">Submit Answer</button>
+				            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column" style="min-width: 210px;">
+                <div class="card text-center bg-light ml-2">
+                    <img class="card-img-top border" th:src="@{${'/images/L/' + currentBand.lead.imageName}}" th:alt="${currentBand.lead.displayValue}">
+                    <div class="card-body">
+                        <p class="card-text" th:text="${currentBand.lead.displayValue + ' says Rock On!'}">Lead Singer Quote</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <div th:replace="fragments/footer :: footer(appInfo=${appInfo})"></div>
+</body>
+</html>

@@ -33,4 +33,30 @@ public class Show {
         return YEAR_FORMATTER.format(date);
     }
 
+    public boolean allQuestionsAnswered() {
+        boolean result = true;
+        if (null != showQuestions) {
+            for (ShowQuestion q : showQuestions) {
+                if (null == q.getAnsweredCorrectly()) {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    // essentially the 1-based index
+    public int getActiveQuestionNumber() {
+        int result = 1;
+        for (ShowQuestion q : showQuestions) {
+            if (null == q.getAnsweredCorrectly()) {
+                return result;
+            }
+            result++;
+        }
+        return result;
+    }
+
+
 }
