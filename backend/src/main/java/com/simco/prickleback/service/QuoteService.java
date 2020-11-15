@@ -9,6 +9,22 @@ import com.simco.prickleback.model.Grade;
 @Controller
 public class QuoteService {
 
+    private static final String[] ENCOURAGEMENT = {
+            "Rock on!",
+            "Keep this train rolling!",
+            "It's show time!",
+            "And now the magic begins!",
+            "Time to get cracking!",
+            "Let's go!",
+            "Things are moving now!",
+            "Knock this one out of the park!",
+            "Way to go!",
+            "Nice job! Next!",
+            "The fans are ready for this!",
+            "Give them what they want!",
+            "They're screaming your name!",
+    };
+
     private static final String[] SCORE_REACTIONS_A = {
             "Amazing job!",
             "Incredible work!",
@@ -44,7 +60,7 @@ public class QuoteService {
     };
 
     private static final String[] SCORE_REACTIONS_C = {
-            "Not too bad, keep studying.",
+            "Not too bad, maybe reduce your Justin Bieber time.",
             "Keep learning!",
             "Practice makes perfect.  Keep practicing!",
             "Keep doing what you're doing, and one day you'll be a star.",
@@ -55,7 +71,7 @@ public class QuoteService {
             "One of these days you're gonna get it just right!",
             "There's room for improvement, but nice work so far.",
             "If only everyone did this well.",
-            "Music could be your thing.  Keep learning.",
+            "Music could be your thing. Keep improving.",
     };
 
     private static final String[] SCORE_REACTIONS_D = {
@@ -66,7 +82,7 @@ public class QuoteService {
             "Tell the game admin to increase the time limit.",
             "Some days that bear, he eats you.",
             "We've had better days, haven't we?",
-            "Suck it up and keep learning.",
+            "Suck it up and keep trying.",
             "You'll do better next time!",
             "I guess you could have done worse.  So, good job.",
             "Don't get discouraged by this.  Try again.",
@@ -74,7 +90,7 @@ public class QuoteService {
             "Hey, it could have been worse...but only barely.",
             "You did better than some journalists.",
             "Not bad for a beginner.",
-            "Lyrics aren't for everyone, but you have time to learn.",
+            "Lyrics aren't for everyone, but you have time to be better.",
     };
 
     private static final String[] SCORE_REACTIONS_E = {
@@ -84,7 +100,7 @@ public class QuoteService {
             "Please, try one more time.",
             "Simply terrible.",
             "It doesn't get much worse, does it?",
-            "Please study some more and try again.",
+            "Please. Listen to some quality music.",
             "We can't all be winners, eh?",
             "Please, no more.",
             "Just...no.",

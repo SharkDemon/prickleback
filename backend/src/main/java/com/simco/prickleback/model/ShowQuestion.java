@@ -35,6 +35,8 @@ public class ShowQuestion {
     @Column(name="image_name")
     private String imageName;
 
+    private String song;
+    private String band;
     private UUID uid;
 
     // these are game-context based properties

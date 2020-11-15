@@ -6,6 +6,8 @@ CREATE TABLE questions (
     answer_string STRING NOT NULL,
     correct_answer_index INT NOT NULL,
     image_name STRING,
+    song STRING,
+    band STRING,
     uid UUID DEFAULT gen_random_uuid()
 );
 

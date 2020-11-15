@@ -9,20 +9,26 @@
         </div>
 
         <div class="d-flex flex-row justify-content-between align-items-start mt-2">
-            <div class="d-flex flex-column w-100">
-                <div class="card text-center bg-light">
-                    <!--<img class="card-img-top" th:src="@{/images/choose-lead.png}" alt="Choose lead">-->
+            <div class="d-flex flex-column justify-content-center align-content-center w-100">
+                <div class="d-flex flex-column justify-content-center align-content-center" style="text-align:center;">
+                    <div>
+                        <h3>From the song <b><span th:text="${activeQuestion.song}">Song</span></b> by <b><span th:text="${activeQuestion.band}">Band</span></b></h3>
+                    </div>
+                    <div>
+                        <img class="card-img-top" style="max-width:600px;" th:src="@{${'/images/Q/' + activeQuestion.imageName}}" th:alt="${activeQuestion.song + ' by ' + activeQuestion.band}" th:title="${activeQuestion.song + ' by ' + activeQuestion.band}">
+                    </div>
+                </div>
+                <div class="card text-center bg-light mt-2">
                     <div class="card-body">
                         <h5 class="card-title">Lyric</h5>
                         <p class="card-text" th:text="${activeQuestion.question}"></p>
                     </div>
                 </div>
                 <div class="card text-center bg-light mt-2">
-                    <!--<img class="card-img-top" th:src="@{/images/choose-lead.png}" alt="Choose lead">-->
                     <div class="card-body">
                         <h5 class="card-title">Choices</h5>
                         <form action="#" th:action="@{/goto-show}" th:object="${questionForm}" method="post">
-	                        <div class="form-check" th:each="answer, answerStatus : ${activeQuestion.answers}">
+	                        <div class="form-check form-check-inline" th:each="answer, answerStatus : ${activeQuestion.answers}">
 	                            <input class="form-check-input" type="radio" name="completeTheLyric" th:field="*{submittedAnswer}" th:value="${answerStatus.index}">
 	                            <label class="form-check-label" for="*{submittedAnswer}" th:text="${answer}"></label>
 	                        </div>
