@@ -46,3 +46,9 @@ div.tourShowQuestion {
 	border: 1px solid black;
 	padding: 10px;
 }
+
+p.very-muted-text {
+	color: #ABB2B9;
+	text-transform: uppercase;
+	font-size: 11px;
+}

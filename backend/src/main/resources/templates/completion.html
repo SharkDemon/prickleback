@@ -13,23 +13,54 @@
                 <div class="d-flex">
                     <h4 th:text="${currentTour.name}">Tour Name</h4>
                 </div>
-                <div class="card bg-light mt-2">
+                <div class="card bg-light mt-2 mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Score</h5>
                         <p class="card-text">
                             You scored <span th:text="${score.currentScore}"></span> out of <span th:text="${score.overallMaxScore}"></span> points.
+                            You earned the grade <b><span th:text="${score.grade.displayName}"></span></b>.
                         </p>
                     </div>
                 </div>
-            </div>
-            <div class="d-flex flex-column" style="min-width: 210px;">
-                <div class="card text-center bg-light ml-2">
-                    <img class="card-img-top border" th:src="@{${'/images/L/' + currentBand.lead.imageName}}" th:alt="${currentBand.lead.displayValue}">
-                    <div class="card-body">
-                        <p class="card-text" th:text="${currentBand.lead.displayValue + ' says Rock On!'}">Lead Singer Quote</p>
-                        <a th:href="@{/goto-show}" class="btn btn-primary">Start the Show!</a>
+                <div class="d-flex flex-row justify-content-center mb-2">
+	                <div class="card text-center bg-light" style="min-width: 210px;">
+	                    <img class="card-img-top" th:src="@{${'/images/L/' + currentBand.lead.imageName}}" th:alt="${currentBand.lead.displayValue}" th:title="${currentBand.lead.displayValue}">
+	                    <div class="card-body">
+	                        <h5 class="card-title"><span th:text="${currentBand.lead.displayValue}"></span></h5>
+                            <p class="very-muted-text" th:text="${currentBand.lead.band}"></p>
+	                        <p class="card-text">"<span th:text="${score.leadReaction}"></span>"</p>
+	                    </div>
+	                </div>
+                    <div class="card text-center bg-light ml-2" style="min-width: 210px;">
+                        <img class="card-img-top" th:src="@{${'/images/R/' + currentBand.rhythm.imageName}}" th:alt="${currentBand.rhythm.displayValue}" th:title="${currentBand.rhythm.displayValue}">
+                        <div class="card-body">
+                            <h5 class="card-title"><span th:text="${currentBand.rhythm.displayValue}"></span></h5>
+                            <p class="very-muted-text" th:text="${currentBand.rhythm.band}"></p>
+                            <p class="card-text">"<span th:text="${score.rhythmReaction}"></span>"</p>
+                        </div>
+                    </div>
+                    <div class="card text-center bg-light ml-2" style="min-width: 210px;">
+                        <img class="card-img-top" th:src="@{${'/images/B/' + currentBand.bassist.imageName}}" th:alt="${currentBand.lead.displayValue}" th:title="${currentBand.bassist.displayValue}">
+                        <div class="card-body">
+                            <h5 class="card-title"><span th:text="${currentBand.bassist.displayValue}"></span></h5>
+                            <p class="very-muted-text" th:text="${currentBand.bassist.band}"></p>
+                            <p class="card-text">"<span th:text="${score.bassistReaction}"></span>"</p>
+                        </div>
+                    </div>
+                    <div class="card text-center bg-light ml-2" style="min-width: 210px;">
+                        <img class="card-img-top" th:src="@{${'/images/D/' + currentBand.drummer.imageName}}" th:alt="${currentBand.drummer.displayValue}" th:title="${currentBand.drummer.displayValue}">
+                        <div class="card-body">
+                            <h5 class="card-title"><span th:text="${currentBand.drummer.displayValue}"></span></h5>
+                            <p class="very-muted-text" th:text="${currentBand.drummer.band}"></p>
+                            <p class="card-text">"<span th:text="${score.drummerReaction}"></span>"</p>
+                        </div>
                     </div>
                 </div>
+
+		        <div class="d-flex justify-content-center mt-4">
+		            <a th:href="@{/}" class="btn btn-primary">Let's Play Again</a>
+		        </div>
+
             </div>
         </div>
     </main>

@@ -27,8 +27,12 @@ public class GameOverController extends BaseController {
 
         // tabulate final scoring for display
         Score score = currentTour.getCurrentScore();
+        // grade the performance
+        score = scoringService.setGrade(score);
+        // get band members reactions to the grade
+        score = scoringService.setReactions(score);
 
-        // TODO: get appropriate quote for display
+        logger.info("showGameOver() grade=[{}]", score.getGrade());
 
         // add session variables
         // add data necessary to render view

@@ -12,4 +12,11 @@ public class Score {
     private int maxScore;
     private int overallMaxScore;
 
+    private Grade grade;
+
+    private String leadReaction;
+    private String rhythmReaction;
+    private String bassistReaction;
+    private String drummerReaction;
+
 }

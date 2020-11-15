@@ -10,7 +10,9 @@ import com.simco.prickleback.model.Band;
 import com.simco.prickleback.model.Tour;
 import com.simco.prickleback.service.CityService;
 import com.simco.prickleback.service.PersonService;
+import com.simco.prickleback.service.QuoteService;
 import com.simco.prickleback.service.ReferenceDataService;
+import com.simco.prickleback.service.ScoringService;
 import com.simco.prickleback.service.TourService;
 
 @Controller
@@ -25,6 +27,10 @@ public class BaseController {
     protected ReferenceDataService referenceDataService;
     @Autowired
     protected TourService tourService;
+    @Autowired
+    protected QuoteService quoteService;
+    @Autowired
+    protected ScoringService scoringService;
 
     @ModelAttribute("appInfo")
     public AppInfo applicationInfo() {
