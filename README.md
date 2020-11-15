@@ -1,8 +1,8 @@
-# Fantasy Rockband 
+# Prickleback
 
 ## Summary
 
-Submitted to MLH Do-Re-Mi Hacks 2020 in November 2020.
+Game implemented as a web application in which you create a fantasy rock band lineup, go on tour, and answer questions to earn points. Submission for MLH Do-Re-Mi Hacks in November 2020.
 
 ## Technologies Used
 
