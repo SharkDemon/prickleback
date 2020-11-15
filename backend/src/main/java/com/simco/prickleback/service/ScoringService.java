@@ -16,26 +16,28 @@ public class ScoringService {
     @Autowired
     private QuoteService quoteService;
 
-    public Score setGrade(Score score) {
-        double percentage = score.getCurrentScore() / score.getOverallMaxScore() * 100;
-        logger.info("setGrade() percentage=[{}]", percentage);
+    public Grade getGrade(Score score) {
+
+        logger.info("getGrade() score=[{}], maxScore=[{}]", score.getCurrentScore(), score.getOverallMaxScore());
+
+        double percentage = 100 * score.getCurrentScore() / score.getOverallMaxScore();
+        logger.info("getGrade() percentage=[{}]", percentage);
 
         if (Grade.A.getThreshold() <= percentage) {
-            score.setGrade(Grade.A);
+            return Grade.A;
         }
         else if (Grade.B.getThreshold() <= percentage) {
-            score.setGrade(Grade.B);
+            return Grade.B;
         }
         else if (Grade.C.getThreshold() <= percentage) {
-            score.setGrade(Grade.C);
+            return Grade.C;
         }
         else if (Grade.D.getThreshold() <= percentage) {
-            score.setGrade(Grade.D);
+            return Grade.D;
         }
         else {
-            score.setGrade(Grade.E);
+            return Grade.E;
         }
-        return score;
     }
 
     public Score setReactions(Score score) {

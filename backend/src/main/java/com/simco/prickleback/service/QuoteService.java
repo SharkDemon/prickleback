@@ -18,6 +18,12 @@ public class QuoteService {
             "Superb. Will you be my tutor?",
             "You are a points-scoring beast!",
             "Heavenly perfection!",
+            "Best tour EVER!",
+            "Thanks for some really amazing shows this year.",
+            "Amazing stuff, great job!",
+            "That was freaking epic!",
+            "Best shows ever!",
+            "A tour like that - that's why I'm in the business.",
     };
 
     private static final String[] SCORE_REACTIONS_B = {
@@ -28,6 +34,11 @@ public class QuoteService {
             "You did better than most!",
             "Your parents would be so proud of that score.",
             "You crushed it!",
+            "Hey man, aim for the stars, you know?",
+            "That effort was truly righteous!",
+            "No way, great score!",
+            "We pulled together and delivered a great tour.",
+            "Some of my favorite shows were on this tour.",
     };
 
     private static final String[] SCORE_REACTIONS_C = {
@@ -38,6 +49,9 @@ public class QuoteService {
             "No shame earning a score like that.",
             "You really know some song lyrics, don't you?",
             "Pretty good job, let's keep improving.",
+            "Hey, middle of the road is still ON the road.",
+            "One of these days you're gonna get it just right!",
+            "There's room for improvement, but nice work so far.",
     };
 
     private static final String[] SCORE_REACTIONS_D = {
@@ -46,10 +60,15 @@ public class QuoteService {
             "My uncle got that score too, but he was blindfolded.",
             "Yeah, we know you can do better.",
             "Tell the game admin to increase the time limit.",
-            "Some days the bear eats you.",
+            "Some days that bear, he eats you.",
             "We've had better days, haven't we?",
             "Suck it up and keep learning.",
             "You'll do better next time!",
+            "I guess you could have done worse.  So, good job.",
+            "Don't get discouraged by this.  Try again.",
+            "Maybe go with different answers next time.",
+            "Hey, it could have been worse...but only barely.",
+            "You did better than some journalists.",
     };
 
     private static final String[] SCORE_REACTIONS_E = {
@@ -62,6 +81,10 @@ public class QuoteService {
             "Just...no.",
             "Absolutely dreadful.",
             "I need to join a new band.",
+            "You may need to flee the country.",
+            "I hope our label doesn't drop us.",
+            "No offense, but I may ask our agent to...replace you.",
+            "If that's how you tour, I don't think I want to tour anymore.",
     };
 
     public String getRandomReactionForGrade(Grade grade) {

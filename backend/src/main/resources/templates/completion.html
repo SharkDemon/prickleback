@@ -17,13 +17,13 @@
                     <div class="card-body">
                         <h5 class="card-title">Score</h5>
                         <p class="card-text">
-                            You scored <span th:text="${score.currentScore}"></span> out of <span th:text="${score.overallMaxScore}"></span> points.
+                            You scored <b><span th:text="${score.currentScore}"></span></b> out of <b><span th:text="${score.overallMaxScore}"></span></b> points.
                             You earned the grade <b><span th:text="${score.grade.displayName}"></span></b>.
                         </p>
                     </div>
                 </div>
                 <div class="d-flex flex-row justify-content-center mb-2">
-	                <div class="card text-center bg-light" style="min-width: 210px;">
+	                <div class="card text-center bg-light" style="min-width:210px;max-width:210px;">
 	                    <img class="card-img-top" th:src="@{${'/images/L/' + currentBand.lead.imageName}}" th:alt="${currentBand.lead.displayValue}" th:title="${currentBand.lead.displayValue}">
 	                    <div class="card-body">
 	                        <h5 class="card-title"><span th:text="${currentBand.lead.displayValue}"></span></h5>
@@ -31,7 +31,7 @@
 	                        <p class="card-text">"<span th:text="${score.leadReaction}"></span>"</p>
 	                    </div>
 	                </div>
-                    <div class="card text-center bg-light ml-2" style="min-width: 210px;">
+                    <div class="card text-center bg-light ml-2" style="min-width:210px;max-width:210px;">
                         <img class="card-img-top" th:src="@{${'/images/R/' + currentBand.rhythm.imageName}}" th:alt="${currentBand.rhythm.displayValue}" th:title="${currentBand.rhythm.displayValue}">
                         <div class="card-body">
                             <h5 class="card-title"><span th:text="${currentBand.rhythm.displayValue}"></span></h5>
@@ -39,7 +39,7 @@
                             <p class="card-text">"<span th:text="${score.rhythmReaction}"></span>"</p>
                         </div>
                     </div>
-                    <div class="card text-center bg-light ml-2" style="min-width: 210px;">
+                    <div class="card text-center bg-light ml-2" style="min-width:210px;max-width:210px;">
                         <img class="card-img-top" th:src="@{${'/images/B/' + currentBand.bassist.imageName}}" th:alt="${currentBand.lead.displayValue}" th:title="${currentBand.bassist.displayValue}">
                         <div class="card-body">
                             <h5 class="card-title"><span th:text="${currentBand.bassist.displayValue}"></span></h5>
@@ -47,7 +47,7 @@
                             <p class="card-text">"<span th:text="${score.bassistReaction}"></span>"</p>
                         </div>
                     </div>
-                    <div class="card text-center bg-light ml-2" style="min-width: 210px;">
+                    <div class="card text-center bg-light ml-2" style="min-width:210px;max-width:210px;">
                         <img class="card-img-top" th:src="@{${'/images/D/' + currentBand.drummer.imageName}}" th:alt="${currentBand.drummer.displayValue}" th:title="${currentBand.drummer.displayValue}">
                         <div class="card-body">
                             <h5 class="card-title"><span th:text="${currentBand.drummer.displayValue}"></span></h5>

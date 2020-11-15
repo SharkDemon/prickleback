@@ -23,16 +23,17 @@ public class GameOverController extends BaseController {
             @ModelAttribute("currentTour") Tour currentTour,
             ModelMap model) {
 
-        logger.info("showGameOver() invoked");
-
         // tabulate final scoring for display
         Score score = currentTour.getCurrentScore();
         // grade the performance
-        score = scoringService.setGrade(score);
+        score.setGrade( scoringService.getGrade(score) );
         // get band members reactions to the grade
         score = scoringService.setReactions(score);
 
-        logger.info("showGameOver() grade=[{}]", score.getGrade());
+        logger.info("showGameOver() score=[{}], maxScore=[{}], grade=[{}]",
+                score.getCurrentScore(),
+                score.getOverallMaxScore(),
+                score.getGrade());
 
         // add session variables
         // add data necessary to render view
