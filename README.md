@@ -29,3 +29,13 @@ Game implemented as a web application in which you create a fantasy rock band li
 ## Attribution
 
 Photos harvested from [pexels.com](https://www.pexels.com) and [unsplash.com](https://unsplash.com) (can modify and use for free), WEBP files converted to JPG at [ezgif.com](https://ezgif.com/), edited at [pixlr.com](https://pixlr.com/x/), and then compressed at [tinypng.com](https://tinypng.com/).
+
+## Screenshots
+
+![Index page](images/prickleback-1.png)
+![Choose musicians page](images/prickleback-2.png)
+![Choose band name page](images/prickleback-3.png)
+![Tour overview page](images/prickleback-4.png)
+![Sample question page 1](images/prickleback-5.png)
+![Sample question page 2](images/prickleback-6.png)
+![Tour completed page](images/prickleback-7.png)
