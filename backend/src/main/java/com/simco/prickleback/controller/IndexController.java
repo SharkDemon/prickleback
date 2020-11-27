@@ -37,7 +37,7 @@ public class IndexController extends BaseController {
 
         // add data necessary to render view
         model.addAttribute("appInfo", appInfo);
-        return new ModelAndView("index", model);
+        return new ModelAndView(VIEW_INDEX, model);
     }
 
 }
