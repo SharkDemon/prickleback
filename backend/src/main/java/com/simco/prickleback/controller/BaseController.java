@@ -18,7 +18,7 @@ import com.simco.prickleback.service.TourService;
 
 @Controller
 @SessionAttributes({"appInfo", "currentBand", "currentTour"})
-public class BaseController {
+public class BaseController implements ViewConstants {
 
     @Autowired
     protected PersonService personService;

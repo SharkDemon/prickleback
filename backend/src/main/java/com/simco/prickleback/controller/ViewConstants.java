@@ -5,4 +5,6 @@ package com.simco.prickleback.controller;
  */
 public interface ViewConstants {
 
+    String VIEW_INDEX = "index";
+
 }
