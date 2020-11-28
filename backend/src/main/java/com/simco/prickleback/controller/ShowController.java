@@ -42,7 +42,7 @@ public class ShowController extends BaseController {
         model.addAttribute("activeQuestion", activeQuestion);
         model.addAttribute("questionForm", new QuestionForm());
         model.addAttribute("animatedGifName", animatedGifName);
-        return new ModelAndView("show", model);
+        return new ModelAndView(VIEW_SHOW, model);
     }
 
     @PostMapping("/goto-show")

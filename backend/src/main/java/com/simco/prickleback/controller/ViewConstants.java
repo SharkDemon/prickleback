@@ -6,5 +6,8 @@ package com.simco.prickleback.controller;
 public interface ViewConstants {
 
     String VIEW_INDEX = "index";
+    String VIEW_TOUR = "tour";
+    String VIEW_SHOW = "show";
+    String VIEW_GAME_OVER = "completion";
 
 }

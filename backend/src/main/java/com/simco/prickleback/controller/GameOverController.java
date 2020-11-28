@@ -38,7 +38,7 @@ public class GameOverController extends BaseController {
         // add session variables
         // add data necessary to render view
         model.addAttribute("score", score);
-        return new ModelAndView("completion", model);
+        return new ModelAndView(VIEW_GAME_OVER, model);
     }
 
 }
