@@ -32,7 +32,7 @@ public class TourController extends BaseController {
         // add session variables
         model.addAttribute("currentBand", currentBand);
         model.addAttribute("currentTour", currentTour);
-        return "tour";
+        return VIEW_TOUR;
     }
 
 }

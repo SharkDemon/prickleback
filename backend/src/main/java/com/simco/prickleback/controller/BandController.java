@@ -115,7 +115,7 @@ public class BandController extends BaseController {
         currentBand.setColor(band.getColor());
 
         model.addAttribute("currentBand", currentBand);
-        return new ModelAndView("redirect:/tour", model);
+        return new ModelAndView("redirect:/" + VIEW_TOUR, model);
     }
 
 }
