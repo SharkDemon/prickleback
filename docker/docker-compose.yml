@@ -3,7 +3,7 @@ services:
    
     cockroach_1:
         container_name: cockroach_1
-        image: cockroachdb/cockroach:latest
+        image: cockroachdb/cockroach:v20.1.17
         volumes:
            - ./data/cockroach_1:/cockroach/cockroach-data
         command: start --insecure --join=cockroach_1,cockroach_2,cockroach_3
@@ -19,7 +19,7 @@ services:
 
     cockroach_2:
         container_name: cockroach_2
-        image: cockroachdb/cockroach:latest
+        image: cockroachdb/cockroach:v20.1.17
         volumes:
            - ./data/cockroach_2:/cockroach/cockroach-data
         command: start --insecure --join=cockroach_1,cockroach_2,cockroach_3
@@ -30,7 +30,7 @@ services:
 
     cockroach_3:
         container_name: cockroach_3
-        image: cockroachdb/cockroach:latest
+        image: cockroachdb/cockroach:v20.1.17
         volumes:
            - ./data/cockroach_3:/cockroach/cockroach-data
         command: start --insecure --join=cockroach_1,cockroach_2,cockroach_3
