@@ -1,5 +1,7 @@
 # Prickleback
 
+[![HitCount](http://hits.dwyl.com/SharkDemon/prickleback.svg)](http://hits.dwyl.com/SharkDemon/prickleback)
+
 ## Summary
 
 Game implemented as a web application in which you create a fantasy rock band lineup, go on tour, and answer questions to earn points. Submission for MLH Do-Re-Mi Hacks in November 2020.
