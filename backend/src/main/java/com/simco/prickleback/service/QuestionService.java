@@ -26,11 +26,10 @@ public class QuestionService {
         List<ShowQuestion> questions = questionRepository.findRandomQuestions(numberToGet);
         // do a little processing here: split answers into array, so the
         // client doesn't have to worry about it
-        for (ShowQuestion q : questions) {
-            String[] _answers = q.getAnswerString().split(ANSWER_DELIMITER);
-            logger.debug("processing q=[{}], answerString=[{}], length of answers[]=[{}]", q.getQuestion(), q.getAnswerString(), _answers.length);
-            q.setAnswers(_answers);
-        }
+        questions.stream().forEach(q -> {
+            q.setAnswers(q.getAnswerString().split(ANSWER_DELIMITER));
+            logger.debug("processing q=[{}], answerString=[{}], length of answers[]=[{}]", q.getQuestion(), q.getAnswerString(), q.getAnswers().length);
+        });
         return questions;
     }
 
